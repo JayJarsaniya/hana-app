@@ -1,0 +1,82 @@
+@keyframes cssload-rotate-one {
+  0% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(0);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  }
+}
+
+@keyframes cssload-rotate-two {
+  0% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(0);
+  }
+  100% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  }
+}
+
+@keyframes cssload-rotate-three {
+  0% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(0);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
+}
+
+.preloader-orbit-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  z-index: 9999;
+  pointer-events: none; /* allow clicks through */
+}
+
+.preloader-orbit-loading .orbit-loading {
+  pointer-events: auto; /* make spinner itself interactable, if needed */
+}
+
+
+.preloader-orbit-loading .orbit-loading {
+  position: absolute;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  perspective: 780px;
+  left: 50%;
+  top: 43%;
+  transform: translate(-50%, -50%);
+}
+
+.preloader-orbit-loading .cssload-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+
+.cssload-one {
+  left: 0;
+  top: 0;
+  animation: cssload-rotate-one 1.15s linear infinite;
+  border-bottom: 3px solid var(--color, #000);
+}
+
+.cssload-two {
+  right: 0;
+  top: 0;
+  animation: cssload-rotate-two 1.15s linear infinite;
+  border-right: 3px solid var(--color, #000);
+}
+
+.cssload-three {
+  right: 0; 
+  bottom: 0;
+  animation: cssload-rotate-three 1.15s linear infinite;
+  border-top: 3px solid var(--color, #000);
+}

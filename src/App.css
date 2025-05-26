@@ -1,0 +1,194 @@
+.hero-area .hero-thumb .thumb-1 {
+  -webkit-mask-image: url(./assets/radius-half-left.webp) !important;
+}
+
+.hero-area .hero-thumb .thumb-2 {
+  -webkit-mask-image: url(./assets/radius-half-right.webp) !important;
+}
+
+.hero-area .hero-thumb .thumb-1 img {
+  border-radius: 0px 0px 0px 50%;
+}
+
+#preloader.preloaded {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s ease;
+}
+
+.main-menu li.menu-item-has-children > a:after {
+  content: "" !important;
+}
+
+.bannerMiniLogo {
+  background-color: #d6e9ff;
+  border-radius: 50%;
+}
+
+.swiper-slide img {
+  filter: grayscale(100%);
+}
+
+.team-area .section-title {
+  max-width: 700px !important;
+}
+
+.blog .text,
+.title {
+  color: white !important;
+}
+
+.blog {
+  height: 510px;
+}
+
+@media only screen and (max-width: 1399px) {
+  .team-area .section-header .text {
+    margin-inline-start: 0px !important;
+  }
+}
+.team-area .section-header .text {
+  max-width: auto !important;
+  text-align: center;
+  margin-inline-start: 0px !important;
+}
+@media only screen and (max-width: 768px) {
+  .blog {
+    height: auto;
+  }
+}
+
+.text-wrapper {
+  width: 100% !important;
+}
+.wc-btn {
+  display: block !important;
+}
+
+.team-area .section-header .text {
+  max-width: 100% !important;
+}
+.footer-area {
+  background-color: #121212 !important;
+}
+
+.header-area.sticky {
+  background-color: white !important;
+}
+
+.wcf-popup-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  color: #fff;
+  gap: 10px;
+  line-height: 1;
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  text-align: center;
+  transition: all 0.3s;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.team-title2 {
+  color: black !important;
+}
+.home-team-area .team-wrapper .team-box .title {
+  color: white !important;
+}
+
+.blogs-wrapper-box .blogs-wrapper a .text-underline {
+  color: rgb(228, 228, 228) !important;
+}
+
+.testimonial-area .swiper-slide img {
+  filter: grayscale(0%) !important;
+}
+
+.about-gallery-wrapper .thumb-2 {
+  margin-top: 150px;
+}
+
+.work-area-2 .container-hd .works-wrapper-box .thumb img,
+video {
+  height: 500px !important;
+  object-fit: cover;
+  object-position: center center;
+  filter: grayscale(0%) !important;
+}
+
+.about-client-area .clients-wrapper .client-box img {
+  filter: grayscale(100%) !important;
+}
+.about-client-area .clients-wrapper .client-box:hover img {
+  filter: grayscale(0%) !important;
+}
+
+/* home page  */
+
+@media only screen and (max-width: 1199px) {
+  .home-about-area .about-gallery-wrapper {
+    padding-inline-start: 0;
+    margin-top: 0px !important;
+  }
+  .home-about-area .about-gallery-wrapper .thumb-2 {
+    margin-top: 20px !important;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .home-about-area .about-service-box {
+    margin-top: 12px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .home-about-area .about-gallery-wrapper {
+    margin-top: 0px !important;
+  }
+  .home-about-area .about-gallery-wrapper .thumb-2 {
+    margin-top: 20px;
+  }
+  .home-about-area .about-service-box {
+    width: 100%;
+  }
+  .skill-thumb .small-image {
+    max-width: 200px !important;
+  }
+  .home-testimonial-area .testimonial-wrapper-box {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  .home-blog-area .section-header {
+    display: block !important;
+    text-align: center;
+  }
+  .home-blog-area .section-header .text{
+    max-width: 100% !important;
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .home-hero-area .section-title {
+    font-size: 50px !important;
+  }
+  .home-hero-area .section-title .rotated {
+    font-size: 10px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 14px !important;
+  }
+  .home-hero-area .section-title .shape-1 {
+    height: 40px !important;
+    margin-inline-start: -10px !important;
+  }
+  .home-team-area .title-wrapper {
+    text-align: center !important;
+  }
+}
