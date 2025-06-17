@@ -9,46 +9,62 @@ import Footer from "../Components/Footer";
 import Preloader from "../Components/Preloader";
 
 const Team = () => {
-  const [teamData, setteamData] = useState(null);
+  const [teamData, setTeamData] = useState(null);
   const [loading, setLoading] = useState(true);
   const data = teamData?.data?.[0]?.sectionData?.["Work Together Section"];
 
   useEffect(() => {
-    console.log("Fetching team_page data...");
+    window.scrollTo(0, 0);
+  }, []);
 
-    fetch("https://crmapi.conscor.com/api/general/mfind", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        dbName: "hanaplateformweb",
-        collectionName: "team_page",
-        limit: 0,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("API Response:", data);
-        setteamData(data);
-        setLoading(false);
+  useEffect(() => {
+    const cacheKey = "team_page_data";
+    const cacheTimestampKey = "team_page_timestamp";
+    const cacheDuration = 1000 * 60 * 60 * 24; // 24 hours
+
+    const now = Date.now();
+    const cached = localStorage.getItem(cacheKey);
+    const cachedTimestamp = localStorage.getItem(cacheTimestampKey);
+
+    if (cached && cachedTimestamp && now - cachedTimestamp < cacheDuration) {
+      setTeamData(JSON.parse(cached));
+      setLoading(false);
+    } else {
+      fetch("https://crmapi.conscor.com/api/general/mfind", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          dbName: "hanaplateformweb",
+          collectionName: "team_page",
+          limit: 0,
+        }),
       })
-      .catch((err) => {
-        console.error("API Error:", err);
-        setLoading(false);
-      });
+        .then((res) => res.json())
+        .then((data) => {
+          setTeamData(data);
+          localStorage.setItem(cacheKey, JSON.stringify(data));
+          localStorage.setItem(cacheTimestampKey, now);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error("API Error:", err);
+          setLoading(false);
+        });
+    }
   }, []);
 
   useEffect(() => {
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href =
-      "https://cdn.jsdelivr.net/gh/JayJarsaniya/js-css/css/master-team.css";
+    link.href = "https://cdn.hanaplatform.com/css/Team-Page-Main.css";
     document.head.appendChild(link);
 
-    // Cleanup on unmount
     return () => {
-      document.head.removeChild(link);
+      if (document.head.contains(link)) {
+        document.head.removeChild(link);
+      }
     };
   }, []);
 
@@ -56,7 +72,7 @@ const Team = () => {
     <>
       {loading && <Preloader />}
       <div className="font-heading-beatricetrial-regular-2">
-        <div className="has-smooth" id="has_smooth" />
+        <div id="has_smooth" />
         <div id="smooth-wrapper">
           <div id="smooth-content">
             <div className="body-wrapper body-corporate-agency">

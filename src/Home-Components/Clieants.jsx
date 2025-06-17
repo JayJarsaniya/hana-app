@@ -5,7 +5,7 @@ const Clieants = ({ homeData }) => {
   const swiperInstancesRef = useRef({});
 
   useEffect(() => {
-    // Cleanup existing swiper instances
+    // Destroy any existing Swiper instances before reinitializing
     Object.values(swiperInstancesRef.current).forEach((swiper) => {
       if (swiper && swiper.destroy) {
         swiper.destroy(true, true);
@@ -13,10 +13,12 @@ const Clieants = ({ homeData }) => {
     });
     swiperInstancesRef.current = {};
 
-    // Initialize swipers after a small delay to ensure DOM is ready
     const initSwipers = () => {
       // Client slider
-      if (document.querySelector(".client-slider-active")) {
+      const clientWrapper = document.querySelector(
+        ".client-slider-active .swiper-wrapper"
+      );
+      if (clientWrapper && clientWrapper.children.length > 0) {
         swiperInstancesRef.current.clientSlider = new Swiper(
           ".client-slider-active",
           {
@@ -33,7 +35,10 @@ const Clieants = ({ homeData }) => {
       }
 
       // Work slider
-      if (document.querySelector(".work-slider-active")) {
+      const workWrapper = document.querySelector(
+        ".work-slider-active .swiper-wrapper"
+      );
+      if (workWrapper && workWrapper.children.length > 0) {
         swiperInstancesRef.current.workSlider = new Swiper(
           ".work-slider-active",
           {
@@ -50,7 +55,10 @@ const Clieants = ({ homeData }) => {
       }
 
       // Testimonial slider
-      if (document.querySelector(".testimonial-slider-active")) {
+      const testimonialWrapper = document.querySelector(
+        ".testimonial-slider-active .swiper-wrapper"
+      );
+      if (testimonialWrapper && testimonialWrapper.children.length > 0) {
         swiperInstancesRef.current.testimonialSlider = new Swiper(
           ".testimonial-slider-active",
           {
@@ -68,13 +76,12 @@ const Clieants = ({ homeData }) => {
       }
     };
 
-    // Small delay to ensure DOM is updated with new content
     const timeoutId = setTimeout(initSwipers, 100);
 
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [homePage]); // Add homePage as dependency
+  }, [homePage]);
 
   // Cleanup on unmount
   useEffect(() => {
@@ -125,7 +132,11 @@ const Clieants = ({ homeData }) => {
                             alt="client image"
                             height={40}
                             onLoad={() => {
-                              if (swiperInstancesRef.current.clientSlider) {
+                              // Optional: update Swiper layout after image load
+                              if (
+                                swiperInstancesRef.current.clientSlider &&
+                                swiperInstancesRef.current.clientSlider.update
+                              ) {
                                 swiperInstancesRef.current.clientSlider.update();
                               }
                             }}

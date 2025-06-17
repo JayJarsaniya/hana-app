@@ -3703,10 +3703,10 @@ h6 {
 .form-search input:focus {
   outline: 0;
 }
-.form-search {
+#search-template .form-search {
   display: flex;
   gap: 10px;
-  border: 1px solid #19242b;
+  border: none !important;
   border-radius: 70px;
   padding: 0 15px;
 }
@@ -7481,11 +7481,11 @@ section {
   margin: 0 auto;
   color: var(--white);
 }
-@media only screen and (max-width: 1919px) {
+/* @media only screen and (max-width: 1919px) {
   .cta-area .section-title {
     font-size: 150px;
   }
-}
+} */
 @media only screen and (max-width: 1399px) {
   .cta-area .section-title {
     font-size: 130px;
@@ -7656,4 +7656,69 @@ section {
     align-items: start !important;
     margin-left: 20px !important;
   }
+}
+
+
+
+
+
+/* Enhanced Search Styles */
+.search-container {
+  position: relative;
+}
+
+.form-search {
+  position: relative;
+  margin-bottom: 0;
+  width: 100%;
+}
+.header-modal .search-container{
+  border-bottom: none;
+  display: block;
+}
+.header-modal .form-search input {
+  max-width: 100% !important;
+  padding: 15px 60px 15px 20px;
+  border: 2px solid #e1e5e9 !important;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: transparent;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.form-search input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}
+
+.form-search button {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,123,255,0.3);
+}
+
+.form-search button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0056b3, #004085);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.form-search button:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  box-shadow: none;
 }

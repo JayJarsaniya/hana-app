@@ -10,23 +10,29 @@ const Faq = ({ homeData }) => {
           <div className="section-content">
             <div className="section-title-wrapper">
               <div className="title-wrapper">
-                <h2 className="section-title has_text_move_anim wow animate__animated animate__fadeInDown">
+                <h2 className="section-title has_text_move_anim wow animate_animated animate_fadeInDown">
                   {homePage?.frequentlyQuestionsTitle}
                 </h2>
               </div>
             </div>
             <div className="text-wrapper">
-              <p className="text has_fade_anim wow animate__animated animate__fadeInUp">
+              <p className="text has_fade_anim wow animate_animated animate_fadeInUp">
                 {homePage?.frequentlyQuestionsContent}
               </p>
             </div>
           </div>
-          <div className="accordion-wrapper has_fade_anim wow animate__animated animate__fadeInUp" data-delay="0.45">
-            <div className="accordion accordion-flush" id="accordionFlushExample">
+          <div
+            className="accordion-wrapper has_fade_anim wow animate_animated animate_fadeInUp"
+            data-delay="0.45"
+          >
+            <div
+              className="accordion accordion-flush"
+              id="accordionFlushExample"
+            >
               <div className="accordion-item">
                 <h2 className="accordion-header" id="flush-headingOne">
                   <button
-                    className="accordion-button collapsed wow animate__animated animate__fadeInLeft"
+                    className="accordion-button collapsed wow animate_animated animate_fadeInLeft"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#flush-collapseOne"
@@ -42,7 +48,7 @@ const Faq = ({ homeData }) => {
                   aria-labelledby="flush-headingOne"
                   data-bs-parent="#accordionFlushExample"
                 >
-                  <div className="accordion-body wow animate__animated animate__fadeInRight">
+                  <div className="accordion-body wow animate_animated animate_fadeInRight">
                     {homePage?.QuestionOneContent}
                   </div>
                 </div>
@@ -50,7 +56,7 @@ const Faq = ({ homeData }) => {
               <div className="accordion-item">
                 <h2 className="accordion-header" id="flush-headingTwo">
                   <button
-                    className="accordion-button wow animate__animated animate__fadeInLeft"
+                    className="accordion-button wow animate_animated animate_fadeInLeft"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#flush-collapseTwo"
@@ -66,7 +72,7 @@ const Faq = ({ homeData }) => {
                   aria-labelledby="flush-headingTwo"
                   data-bs-parent="#accordionFlushExample"
                 >
-                  <div className="accordion-body wow animate__animated animate__fadeInRight">
+                  <div className="accordion-body wow animate_animated animate_fadeInRight">
                     {homePage?.QuestionTwoContent}
                   </div>
                 </div>
@@ -74,7 +80,7 @@ const Faq = ({ homeData }) => {
               <div className="accordion-item">
                 <h2 className="accordion-header" id="flush-headingThree">
                   <button
-                    className="accordion-button collapsed wow animate__animated animate__fadeInLeft"
+                    className="accordion-button collapsed wow animate_animated animate_fadeInLeft"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#flush-collapseThree"
@@ -90,7 +96,7 @@ const Faq = ({ homeData }) => {
                   aria-labelledby="flush-headingThree"
                   data-bs-parent="#accordionFlushExample"
                 >
-                  <div className="accordion-body wow animate__animated animate__fadeInRight">
+                  <div className="accordion-body wow animate_animated animate_fadeInRight">
                     {homePage?.QuestionThreeContent}
                   </div>
                 </div>
@@ -98,7 +104,7 @@ const Faq = ({ homeData }) => {
               <div className="accordion-item">
                 <h2 className="accordion-header" id="flush-headingFour">
                   <button
-                    className="accordion-button collapsed wow animate__animated animate__fadeInLeft"
+                    className="accordion-button collapsed wow animate_animated animate_fadeInLeft"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#flush-collapseFour"
@@ -114,7 +120,7 @@ const Faq = ({ homeData }) => {
                   aria-labelledby="flush-headingFour"
                   data-bs-parent="#accordionFlushExample"
                 >
-                  <div className="accordion-body wow animate__animated animate__fadeInRight">
+                  <div className="accordion-body wow animate_animated animate_fadeInRight">
                     {homePage?.QuestionFourContent}
                   </div>
                 </div>
@@ -122,7 +128,7 @@ const Faq = ({ homeData }) => {
               <div className="accordion-item">
                 <h2 className="accordion-header" id="flush-headingFive">
                   <button
-                    className="accordion-button collapsed wow animate__animated animate__fadeInLeft"
+                    className="accordion-button collapsed wow animate_animated animate_fadeInLeft"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#flush-collapseFive"
@@ -138,7 +144,7 @@ const Faq = ({ homeData }) => {
                   aria-labelledby="flush-headingFive"
                   data-bs-parent="#accordionFlushExample"
                 >
-                  <div className="accordion-body wow animate__animated animate__fadeInRight">
+                  <div className="accordion-body wow animate_animated animate_fadeInRight">
                     {homePage?.QuestionFiveContent}
                   </div>
                 </div>
@@ -146,7 +152,7 @@ const Faq = ({ homeData }) => {
               <div className="accordion-item">
                 <h2 className="accordion-header" id="flush-headingSix">
                   <button
-                    className="accordion-button collapsed wow animate__animated animate__fadeInLeft"
+                    className="accordion-button collapsed wow animate_animated animate_fadeInLeft"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#flush-collapseSix"
@@ -162,7 +168,7 @@ const Faq = ({ homeData }) => {
                   aria-labelledby="flush-headingSix"
                   data-bs-parent="#accordionFlushExample"
                 >
-                  <div className="accordion-body wow animate__animated animate__fadeInRight">
+                  <div className="accordion-body wow animate_animated animate_fadeInRight">
                     {homePage?.QuestionSixContent}
                   </div>
                 </div>
@@ -170,7 +176,7 @@ const Faq = ({ homeData }) => {
               <div className="accordion-item">
                 <h2 className="accordion-header" id="flush-headingSeven">
                   <button
-                    className="accordion-button collapsed wow animate__animated animate__fadeInLeft"
+                    className="accordion-button collapsed wow animate_animated animate_fadeInLeft"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#flush-collapseSeven"
@@ -186,7 +192,7 @@ const Faq = ({ homeData }) => {
                   aria-labelledby="flush-headingSeven"
                   data-bs-parent="#accordionFlushExample"
                 >
-                  <div className="accordion-body wow animate__animated animate__fadeInRight">
+                  <div className="accordion-body wow animate_animated animate_fadeInRight">
                     {homePage?.QuestionSevenContent}
                   </div>
                 </div>
@@ -194,7 +200,7 @@ const Faq = ({ homeData }) => {
               <div className="accordion-item">
                 <h2 className="accordion-header" id="flush-headingEight">
                   <button
-                    className="accordion-button collapsed wow animate__animated animate__fadeInLeft"
+                    className="accordion-button collapsed wow animate_animated animate_fadeInLeft"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#flush-collapseEight"
@@ -210,7 +216,7 @@ const Faq = ({ homeData }) => {
                   aria-labelledby="flush-headingEight"
                   data-bs-parent="#accordionFlushExample"
                 >
-                  <div className="accordion-body wow animate__animated animate__fadeInRight">
+                  <div className="accordion-body wow animate_animated animate_fadeInRight">
                     {homePage?.QuestionEightContent}
                   </div>
                 </div>

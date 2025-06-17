@@ -4856,7 +4856,7 @@ section {
   }
 }
 .wc-btn-circle:hover {
-  background-color: var(--black);
+  background-color: var(--black) !important;
   color: var(--white);
 }
 .wc-btn-oval {
@@ -9154,7 +9154,9 @@ section {
     margin-top: 27px;
   }
 }
+
 .faq-area-inner {
+  /* height: fit-content  !important; */
   display: grid;
   gap: 30px 60px;
   grid-template-columns: 1fr 740px;
@@ -9174,6 +9176,7 @@ section {
     grid-template-columns: 1fr;
   }
 }
+
 .faq-area .section-title {
   max-width: 390px;
 }

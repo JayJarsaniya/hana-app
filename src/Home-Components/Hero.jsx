@@ -26,10 +26,10 @@ const Hero = ({ homeData }) => {
   }, [showVideo]);
 
   return (
-    <section className="hero-area">
+    <section className="hero-area home-hero-area">
       <div className="container large">
         <div className="hero-area-inner">
-          <div className="area-shape-1 wow animate__animated animate__fadeInDown animate__slowest">
+          <div className="area-shape-1 wow animate_animated animatefadeInDown animate_slowest">
             <img
               className="show-light"
               src="https://crowdytheme.com/html/arolax/assets/imgs/shape/img-s-64.webp"
@@ -45,7 +45,7 @@ const Hero = ({ homeData }) => {
           <div className="section-content">
             <div className="content-first">
               <div className="section-title-wrapper">
-                <div className="title-wrapper wow animate__animated animate__fadeInUp animate__slow">
+                <div className="title-wrapper wow animate_animated animatefadeInUp animate_slow">
                   <h1 className="section-title has_fade_anim">
                     {homePage?.bannerTitleOne}
                     <span className="marked">
@@ -55,7 +55,7 @@ const Hero = ({ homeData }) => {
                     <span className="rotated">{homePage?.bannerTitleFour}</span>
                     <span className="shape-1 bannerMiniLogo">
                       <img
-                        className="show-light has_fade_anim wow animate__animated animate__fadeIn animate__slow"
+                        className="show-light has_fade_anim wow animate_animated animatefadeIn animate_slow"
                         data-fade-offset={0}
                         src={homePage?.bannerMiniLogo}
                         alt="shape"
@@ -67,7 +67,7 @@ const Hero = ({ homeData }) => {
 
               <div className="content-bottom">
                 <div
-                  className="scroll-down has_fade_anim wow animate__animated animate__fadeInUp animate__slow"
+                  className="scroll-down has_fade_anim wow animate_animated animatefadeInUp animate_slow"
                   data-fade-offset={0}
                   data-on-scroll={0}
                   data-delay="0.75"
@@ -86,7 +86,7 @@ const Hero = ({ homeData }) => {
 
                 <div className="text-wrapper">
                   <p
-                    className="text has_fade_anim wow animate__animated animate__fadeInRight animate__slow"
+                    className="text has_fade_anim wow animate_animated animatefadeInRight animate_slow"
                     data-on-scroll={0}
                     data-delay="0.30"
                   >
@@ -94,7 +94,7 @@ const Hero = ({ homeData }) => {
                   </p>
                 </div>
 
-                <div className="btn-wrapper has_fade_anim wow animate__animated animate__bounceIn animate__slow">
+                <div className="btn-wrapper has_fade_anim wow animate_animated animatebounceIn animate_slow">
                   <a href="#" className="wc-btn wc-btn-underline btn-text-flip">
                     <span data-text="get started now">get started now</span>
                     <img
@@ -113,7 +113,7 @@ const Hero = ({ homeData }) => {
             </div>
 
             <div className="content-last">
-              <div className="thumb-wrapper has_fade_anim wow animate__animated animate__fadeInRight animate__slow">
+              <div className="thumb-wrapper has_fade_anim wow animate_animated animatefadeInRight animate_slow">
                 <div className="shape-1">
                   <img
                     className="show-light"
@@ -128,7 +128,7 @@ const Hero = ({ homeData }) => {
                 </div>
 
                 <div
-                  className="video-btn-box wow animate__animated animate__zoomIn animate__slow"
+                  className="video-btn-box wow animate_animated animatezoomIn animate_slow"
                   data-wow-delay="0.3s"
                 >
                   <div className="video-btn">
@@ -144,13 +144,13 @@ const Hero = ({ homeData }) => {
 
                 <div className="hero-thumb">
                   <div
-                    className="thumb-1 wow animate__animated animate__fadeInLeft animate__slow"
+                    className="thumb-1 wow animate_animated animatefadeInLeft animate_slow"
                     data-wow-delay="0.3s"
                   >
                     <img src={homePage?.bannerImageOne} alt="image" />
                   </div>
                   <div
-                    className="thumb-2 wow animate__animated animate__fadeInRight animate__slow"
+                    className="thumb-2 wow animate_animated animatefadeInRight animate_slow"
                     data-wow-delay="0.6s"
                   >
                     <img src={homePage?.bannerImageTwo} alt="image" />
@@ -159,7 +159,7 @@ const Hero = ({ homeData }) => {
               </div>
 
               <div
-                className="customer-wrapper-box wow animate__animated animate__fadeInUp animate__slow"
+                className="customer-wrapper-box wow animate_animated animatefadeInUp animate_slow"
                 data-wow-delay="0.5s"
               >
                 <div className="customer-wrapper">
@@ -219,6 +219,28 @@ const Hero = ({ homeData }) => {
             }}
             onClick={handleVideoClose}
           >
+            {/* Close button outside video container */}
+            <button
+              onClick={handleVideoClose}
+              style={{
+                position: "fixed",
+                top: "90px",
+                right: "30px",
+                background: "transparent",
+                // border: "2px solid #fff",
+                // borderRadius: "50%",
+                color: "#fff",
+                fontSize: "3rem",
+                fontWeight: "bold",
+                padding: "10px 20px",
+                cursor: "pointer",
+                zIndex: 10001,
+              }}
+            >
+              &times;
+            </button>
+
+            {/* Video container */}
             <div
               style={{
                 position: "relative",
@@ -230,22 +252,6 @@ const Hero = ({ homeData }) => {
               }}
               onClick={(e) => e.stopPropagation()}
             >
-              <button
-                onClick={handleVideoClose}
-                style={{
-                  position: "absolute",
-                  top: "10px",
-                  right: "10px",
-                  background: "transparent",
-                  border: "none",
-                  color: "#fff",
-                  fontSize: "2rem",
-                  cursor: "pointer",
-                  zIndex: 10001,
-                }}
-              >
-                &times;
-              </button>
               <video
                 src={video}
                 autoPlay

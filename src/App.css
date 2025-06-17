@@ -168,7 +168,7 @@ video {
     display: block !important;
     text-align: center;
   }
-  .home-blog-area .section-header .text{
+  .home-blog-area .section-header .text {
     max-width: 100% !important;
     margin-top: 10px;
   }
@@ -191,4 +191,70 @@ video {
   .home-team-area .title-wrapper {
     text-align: center !important;
   }
+}
+
+.progress-wrap::after {
+  content: "" !important;
+}
+
+@media only screen and (max-width: 500px) {
+  .hero-area .section-title {
+    font-size: 60px !important;
+  }
+}
+
+@media only screen and (max-width: 366px) {
+  .hero-area .section-title {
+    font-size: 4 0px !important;
+  }
+}
+
+.home-hero-area video {
+  height: auto !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .about-gallery-wrapper .thumb-1 {
+    margin-top: 20px !important;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .kb-hero-area-inner2 .section-title-wrapper .section-title {
+    font-size: 50px;
+  }
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.tech-stack span {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.tech-stack span:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.portfolio-main-sec .works-wrapper2 {
+  gap: 70px 50px !important;
+}
+
+.home-about-explore-btn {
+  color: black !important;
+}
+.home-about-explore-btn:hover {
+  color: white !important;
+  background-color: black !important;
 }

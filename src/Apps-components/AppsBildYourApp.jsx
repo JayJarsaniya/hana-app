@@ -14,27 +14,43 @@ const AppsBildYourApp = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .post("https://crmapi.conscor.com/api/general/mfind", {
-        dbName: "hanaplateformweb",
-        collectionName: "appspage",
-        limit: 5,
-      })
-      .then((res) => {
-        const rawApps = res.data?.data || [];
-        const formattedApps = rawApps
-          .map((item) => ({
-            ...item.sectionData?.hanaapps,
-            id: item._id,
-          }))
-          .filter((app) => app); // remove nulls
-        setApps(formattedApps.slice(0, 5));
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("API Error:", err);
-        setLoading(false);
-      });
+    const cacheKey = "apps_bya_data";
+    const cacheTimestampKey = "apps_bya_timestamp";
+    const cacheDuration = 1000 * 60 * 60 * 24; // 24 hours
+    const now = Date.now();
+
+    const cachedData = localStorage.getItem(cacheKey);
+    const cachedTimestamp = localStorage.getItem(cacheTimestampKey);
+
+    if (cachedData && cachedTimestamp && now - cachedTimestamp < cacheDuration) {
+      setApps(JSON.parse(cachedData));
+      setLoading(false);
+    } else {
+      axios
+        .post("https://crmapi.conscor.com/api/general/mfind", {
+          dbName: "hanaplateformweb",
+          collectionName: "appspage",
+          limit: 5,
+        })
+        .then((res) => {
+          const rawApps = res.data?.data || [];
+          const formattedApps = rawApps
+            .map((item) => ({
+              ...item.sectionData?.hanaapps,
+              id: item._id,
+            }))
+            .filter((app) => app)
+            .slice(0, 5);
+          setApps(formattedApps);
+          localStorage.setItem(cacheKey, JSON.stringify(formattedApps));
+          localStorage.setItem(cacheTimestampKey, now);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error("API Error:", err);
+          setLoading(false);
+        });
+    }
   }, []);
 
   return (

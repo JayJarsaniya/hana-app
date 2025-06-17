@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const About = ({ homeData }) => {
   const homePage = homeData?.data?.[0]?.sectionData?.homePage;
@@ -68,14 +69,13 @@ const About = ({ homeData }) => {
                   data-wow-offset="100"
                 >
                   <div className="btn-wrapper btn-move">
-                    <a
-                      href="#"
-                      className="wc-btn wc-btn-circle btn-hover-bgchange btn-item"
+                    <Link to='/about'
+                      className="wc-btn-circle btn-hover-bgchange btn-item home-about-explore-btn"
                     >
                       Explore Us
                       <br />
                       More
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

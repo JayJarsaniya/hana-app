@@ -46,49 +46,47 @@ const Service = ({ homeData }) => {
                     data-wow-delay={`${0.2 + index * 0.1}s`}
                     key={index}
                   >
-                    <a href="#">
-                      <div className="service-box">
-                        <span className="number">
-                          {String(index + 1).padStart(2, "0")}.
-                        </span>
-                        <div className="content">
-                          <h3 className="title">
-                            {item?.serviceName?.replace(/<br\s*\/?>/gi, " ")}
-                          </h3>
-                          <div className="content-last">
-                            <p className="text">{item?.serviceContent}</p>
-                            <div className="feature-list">
-                              <ul>
-                                {item?.serviceContentListOne && (
-                                  <li>+ {item?.serviceContentListOne}</li>
-                                )}
-                                {item?.serviceContentListTwo && (
-                                  <li>+ {item?.serviceContentListTwo}</li>
-                                )}
-                                {item?.serviceContentListThree && (
-                                  <li>+ {item?.serviceContentListThree}</li>
-                                )}
-                                {item?.serviceContentListFour && (
-                                  <li>+ {item?.serviceContentListFour}</li>
-                                )}
-                              </ul>
-                            </div>
+                    <div className="service-box">
+                      <span className="number">
+                        {String(index + 1).padStart(2, "0")}.
+                      </span>
+                      <div className="content">
+                        <h3 className="title">
+                          {item?.serviceName?.replace(/<br\s*\/?>/gi, " ")}
+                        </h3>
+                        <div className="content-last">
+                          <p className="text">{item?.serviceContent}</p>
+                          <div className="feature-list">
+                            <ul>
+                              {item?.serviceContentListOne && (
+                                <li>+ {item?.serviceContentListOne}</li>
+                              )}
+                              {item?.serviceContentListTwo && (
+                                <li>+ {item?.serviceContentListTwo}</li>
+                              )}
+                              {item?.serviceContentListThree && (
+                                <li>+ {item?.serviceContentListThree}</li>
+                              )}
+                              {item?.serviceContentListFour && (
+                                <li>+ {item?.serviceContentListFour}</li>
+                              )}
+                            </ul>
                           </div>
                         </div>
-                        <div className="icon">
-                          <img
-                            className="show-light"
-                            src={item?.serviceContentListImage}
-                            alt="icon"
-                          />
-                          <img
-                            className="show-dark"
-                            src="https://crowdytheme.com/html/arolax/assets/imgs/icon/icon-s-36-light.webp"
-                            alt="icon"
-                          />
-                        </div>
                       </div>
-                    </a>
+                      <div className="icon">
+                        <img
+                          className="show-light"
+                          src={item?.serviceContentListImage}
+                          alt="icon"
+                        />
+                        <img
+                          className="show-dark"
+                          src="https://crowdytheme.com/html/arolax/assets/imgs/icon/icon-s-36-light.webp"
+                          alt="icon"
+                        />
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>

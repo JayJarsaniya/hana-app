@@ -5,28 +5,33 @@ const Work = ({ homeData }) => {
   const swiperInstancesRef = useRef([]);
 
   useEffect(() => {
-    // Destroy previous Swipers
+    // Destroy previous Swiper instances
     swiperInstancesRef.current.forEach((swiper) => {
-      if (swiper && swiper.destroy) swiper.destroy(true, true);
+      if (swiper?.destroy) swiper.destroy(true, true);
     });
     swiperInstancesRef.current = [];
 
     const initSwipers = () => {
       const sliders = document.querySelectorAll(".work-slider-active");
 
-      sliders.forEach((slider, index) => {
-        const swiper = new Swiper(slider, {
-          slidesPerView: "auto",
-          loop: true,
-          spaceBetween: 10,
-          speed: 3000,
-          autoplay: {
-            delay: 0,
-            disableOnInteraction: false,
-          },
-          reverseDirection: slider.getAttribute("dir") === "rtl",
-        });
-        swiperInstancesRef.current.push(swiper);
+      sliders.forEach((slider) => {
+        const wrapper = slider.querySelector(".swiper-wrapper");
+
+        // Only init Swiper if .swiper-wrapper exists and has slides
+        if (wrapper && wrapper.children.length > 0) {
+          const swiper = new Swiper(slider, {
+            slidesPerView: "auto",
+            loop: true,
+            spaceBetween: 10,
+            speed: 3000,
+            autoplay: {
+              delay: 0,
+              disableOnInteraction: false,
+            },
+            reverseDirection: slider.getAttribute("dir") === "rtl",
+          });
+          swiperInstancesRef.current.push(swiper);
+        }
       });
     };
 
@@ -53,7 +58,10 @@ const Work = ({ homeData }) => {
       return (
         <div className="swiper-slide" key={`work-${start}-${i}`}>
           <a href="#">
-            <div className="work-box wow animate__animated animate__fadeInUp" data-wow-delay={`${i * 0.2}s`}>
+            <div
+              className="work-box wow animate__animated animate__fadeInUp"
+              data-wow-delay={`${i * 0.2}s`}
+            >
               <div className="thumb">
                 {isVideo ? (
                   <video
@@ -62,14 +70,22 @@ const Work = ({ homeData }) => {
                     muted
                     loop
                     playsInline
-                    onLoadedData={() => swiperInstancesRef.current.forEach(s => s?.update?.())}
-                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    onLoadedData={() =>
+                      swiperInstancesRef.current.forEach((s) => s?.update?.())
+                    }
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
                   />
                 ) : (
                   <img
                     src={item.projectImage}
                     alt="project"
-                    onLoad={() => swiperInstancesRef.current.forEach(s => s?.update?.())}
+                    onLoad={() =>
+                      swiperInstancesRef.current.forEach((s) => s?.update?.())
+                    }
                   />
                 )}
               </div>

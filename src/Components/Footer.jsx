@@ -17,7 +17,7 @@ const Footer = () => {
               <Link to='/apps'>apps</Link>
             </li>
             <li>
-              <a href="#">knowledge base</a>
+              <Link to='/kb'>knowledge base</Link>
             </li>
             <li>
               <Link to='/about'>about us</Link>
@@ -26,7 +26,7 @@ const Footer = () => {
               <Link to='/team'>team</Link>
             </li>
             <li>
-              <a href="#">privacy policy</a>
+              <Link to='/privacy-policy'>privacy policy</Link>
             </li>
           </ul>
           <ul className="social-links wow animate__animated animate__fadeInRight" data-wow-delay="0.6s">

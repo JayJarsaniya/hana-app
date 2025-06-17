@@ -19,21 +19,40 @@ const Apps = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .post("https://crmapi.conscor.com/api/general/mfind", {
-        dbName: "hanaplateformweb",
-        collectionName: "appspage",
-        limit: 0,
-      })
-      .then((res) => {
-        const result = res.data?.data;
-        setApps(result);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("API Error:", err);
-        setLoading(false);
-      });
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const cacheKey = "apps_page_data";
+    const cacheTimestampKey = "apps_page_timestamp";
+    const cacheDuration = 1000 * 60 * 60 * 24; // 24 hours
+
+    const now = Date.now();
+    const cached = localStorage.getItem(cacheKey);
+    const cachedTimestamp = localStorage.getItem(cacheTimestampKey);
+
+    if (cached && cachedTimestamp && now - cachedTimestamp < cacheDuration) {
+      setApps(JSON.parse(cached));
+      setLoading(false);
+    } else {
+      axios
+        .post("https://crmapi.conscor.com/api/general/mfind", {
+          dbName: "hanaplateformweb",
+          collectionName: "appspage",
+          limit: 0,
+        })
+        .then((res) => {
+          const result = res.data?.data;
+          setApps(result);
+          localStorage.setItem(cacheKey, JSON.stringify(result));
+          localStorage.setItem(cacheTimestampKey, now);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error("API Error:", err);
+          setLoading(false);
+        });
+    }
   }, []);
 
   return (
@@ -41,7 +60,7 @@ const Apps = () => {
       {loading && <Preloader />}
 
       <div className="font-heading-beatricetrial-regular-2">
-        <div className="has-smooth" id="has_smooth" />
+        <div id="has_smooth" />
         <div id="smooth-wrapper">
           <div id="smooth-content">
             <div className="body-wrapper body-corporate-agency">
@@ -106,7 +125,7 @@ const Apps = () => {
                                           margin: "10px 0",
                                         }}
                                       >
-                                        <div className="work-box hover-animate">
+                                        <div className="work-box hover-animate m-sm-0 m-4">
                                           <div className="thumb">
                                             <img
                                               src={app.image}
@@ -141,9 +160,7 @@ const Apps = () => {
                         className="btn-wrapper has_fade_anim wow animate__animated animate__pulse"
                         data-wow-delay="0.8s"
                         style={{ animationDuration: "1.5s" }}
-                      >
-                        
-                      </div>
+                      ></div>
                     </div>
                   </div>
                 </section>

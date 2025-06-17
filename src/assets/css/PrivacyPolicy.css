@@ -1,0 +1,31 @@
+.section-title {
+  font-family: "Teko", sans-serif !important;
+}
+.title {
+  font-family: "Teko", sans-serif !important;
+  color: black !important;
+}
+.Privacy-Policy-area {
+  margin-top: 90px;
+  color: black;
+  margin-bottom: 50px;
+}
+.Privacy-Policy-area .section-title {
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+.Privacy-title {
+  margin: 30px 0px 10px;
+  font-weight: 500;
+}
+
+.Privacy-Policy-area ul li {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.bulets-img {
+  height: 20px;
+  margin: 0px 10px 0px 20px;
+}
